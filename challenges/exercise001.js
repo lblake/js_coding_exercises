@@ -75,4 +75,15 @@ export function getMeanScore(scores) {
 export function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error('n is required');
   // Add your code here!
+  for (let i = 1; i <= 15; i++) {
+    if (n % 3 === 0 && n % 5 === 0) {
+      return 'fizzbuzz';
+    } else if (n % 3 === 0) {
+      return 'fizz';
+    } else if (n % 5 === 0) {
+      return 'buzz';
+    } else {
+      return n;
+    }
+  }
 }
