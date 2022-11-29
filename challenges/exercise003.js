@@ -26,16 +26,26 @@ export function camelCaseWords(words) {
 export function getTotalSubjects(people) {
   if (people === undefined) throw new Error('people is required');
   // Your code here!
+  let arraySubjects = people.map((person) => person.subjects);
+  return arraySubjects.flat().length;
 }
 
 export function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error('menu is required');
   if (!ingredient) throw new Error('ingredient is required');
   // Your code here!
+  for (let menuItem of menu) {
+    if (menuItem.ingredients.includes(ingredient)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 export function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error('arr1 is required');
   if (arr2 === undefined) throw new Error('arr2 is required');
   // Your code here!
+  const sameNumbers = arr1.filter((num) => arr2.includes(num));
+  return [...new Set(sameNumbers)].sort((a, b) => a - b);
 }
