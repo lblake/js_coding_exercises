@@ -23,11 +23,15 @@ export function findNamesBeginningWith(names, char) {
 export function findVerbs(words) {
   if (!words) throw new Error('words is required');
   // Your code here
+  let verbs = words.filter((word) => word.startsWith('to '));
+  return verbs;
 }
 
 export function getIntegers(nums) {
   if (!nums) throw new Error('nums is required');
   // Your code here
+  let numsArray = nums.filter((num) => num % 1 == 0);
+  return numsArray;
 }
 
 export function getCities(users) {
