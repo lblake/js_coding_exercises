@@ -54,9 +54,11 @@ export function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error('sentences is required');
   if (!str) throw new Error('str is required');
   // Your code here
+  return sentences.filter((sentence) => sentence.toLowerCase().includes(str));
 }
 
 export function getLongestSides(triangles) {
   if (!triangles) throw new Error('triangles is required');
   // Your code here
+  return triangles.map((triangle) => Math.max(...triangle));
 }
