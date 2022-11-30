@@ -37,11 +37,17 @@ export function getIntegers(nums) {
 export function getCities(users) {
   if (!users) throw new Error('users is required');
   // Your code here
+  return users.map((user) => user.data.city.displayName);
 }
 
 export function getSquareRoots(nums) {
   if (!nums) throw new Error('nums is required');
   // Your code here
+  let squaredNumbers = nums.map((num) => Math.sqrt(num));
+  let squaredRoundedNumbers = squaredNumbers.map(
+    (num) => Math.round(num * 100) / 100
+  );
+  return squaredRoundedNumbers;
 }
 
 export function findSentencesContaining(sentences, str) {
