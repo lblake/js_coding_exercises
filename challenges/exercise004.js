@@ -1,10 +1,6 @@
 export function findSmallNums(nums) {
   if (!nums) throw new Error('nums is required');
   // Your code here
-  // const isLessThan100 = nums.filter(item => {
-  //   return (typeof item === "number") && item < 1;
-  // });
-  // const isLessThan100 = a => a.filter(e => +e === e && e < 100);
   var obj = {
     key: nums,
   };
