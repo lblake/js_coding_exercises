@@ -109,4 +109,13 @@ export const createMatrix = (n, fill) => {
 export const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error('staff is required');
   if (day === undefined) throw new Error('day is required');
+
+  const staffRotasAvailiability = [];
+
+  staff.map((staffMember) => {
+    staffRotasAvailiability.push(
+      staffMember.rota.filter((rotaDay) => rotaDay.includes(day))
+    );
+  });
+  return staffRotasAvailiability.length >= 3;
 };
