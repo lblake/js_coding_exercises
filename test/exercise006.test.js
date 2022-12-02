@@ -35,23 +35,22 @@ describe('sumMultiples', () => {
 
   describe('isValidDNA', () => {
     test('it should return true if valid DNA characters are presnt otherwise returns false', () => {
-      expect(isValidDNA('abababababab')).toBe(false)
-      expect(isValidDNA('xyxyxyxyxy')).toBe(false)
-      expect(isValidDNA('cgtacgta')).toBe(true)
-      expect(isValidDNA('tacgtacg')).toBe(true)
-      expect(isValidDNA('gcat')).toBe(true)
-      expect(isValidDNA('')).toBe(false)
-    })
-  })
-  
+      expect(isValidDNA('abababababab')).toBe(false);
+      expect(isValidDNA('xyxyxyxyxy')).toBe(false);
+      expect(isValidDNA('cgtacgta')).toBe(true);
+      expect(isValidDNA('tacgtacg')).toBe(true);
+      expect(isValidDNA('gcat')).toBe(true);
+      expect(isValidDNA('')).toBe(false);
+    });
+  });
+
   describe('getComplementaryDNA', () => {
     test('it should return complimentry dna string', () => {
-      expect(getComplementaryDNA('cgtacgta')).toBe('gcatgcat')
-      expect(getComplementaryDNA('tacgtacg')).toBe('atgcatgc')
-      expect(getComplementaryDNA('gcat')).toBe('cgta')
-    })
-  })
-
+      expect(getComplementaryDNA('cgtacgta')).toBe('gcatgcat');
+      expect(getComplementaryDNA('tacgtacg')).toBe('atgcatgc');
+      expect(getComplementaryDNA('gcat')).toBe('cgta');
+    });
+  });
 
   describe('isItPrime', () => {
     test('it should return true if number is prime integer', () => {
@@ -65,8 +64,32 @@ describe('sumMultiples', () => {
     });
   });
 
+  describe('createMatrix Array', () => {
+    test('matrix of n, populated by fill ', () => {
+      expect(createMatrix(2, 'hello')).toEqual([
+        ['hello', 'hello'],
+        ['hello', 'hello'],
+      ]);
+      expect(createMatrix(3, 'jump')).toEqual([
+        ['jump', 'jump', 'jump'],
+        ['jump', 'jump', 'jump'],
+        ['jump', 'jump', 'jump'],
+      ]);
+      expect(createMatrix(4, 'up')).toEqual([
+        ['up', 'up', 'up', 'up'],
+        ['up', 'up', 'up', 'up'],
+        ['up', 'up', 'up', 'up'],
+        ['up', 'up', 'up', 'up'],
+      ]);
+    });
+    test('Not negative', () => {
+      expect(createMatrix(-11, 'go')).toEqual([]);
+    });
+    test('0 gives empty array ', () => {
+      expect(createMatrix(0, 'go')).toEqual([]);
+    });
+    test('1 gives array with 1 value ', () => {
+      expect(createMatrix(1, 'go')).toEqual([['go']]);
+    });
+  });
 });
-
-
-
-
