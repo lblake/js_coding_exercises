@@ -32,16 +32,41 @@ describe('sumMultiples', () => {
     const expected = 0;
     expect(result).toBe(expected);
   });
+
+  describe('isValidDNA', () => {
+    test('it should return true if valid DNA characters are presnt otherwise returns false', () => {
+      expect(isValidDNA('abababababab')).toBe(false)
+      expect(isValidDNA('xyxyxyxyxy')).toBe(false)
+      expect(isValidDNA('cgtacgta')).toBe(true)
+      expect(isValidDNA('tacgtacg')).toBe(true)
+      expect(isValidDNA('gcat')).toBe(true)
+      expect(isValidDNA('')).toBe(false)
+    })
+  })
+  
+  describe('getComplementaryDNA', () => {
+    test('it should return complimentry dna string', () => {
+      expect(getComplementaryDNA('cgtacgta')).toBe('gcatgcat')
+      expect(getComplementaryDNA('tacgtacg')).toBe('atgcatgc')
+      expect(getComplementaryDNA('gcat')).toBe('cgta')
+    })
+  })
+
+
+  describe('isItPrime', () => {
+    test('it should return true if number is prime integer', () => {
+      expect(isItPrime(4)).toBe(false);
+      expect(isItPrime(7)).toBe(true);
+      expect(isItPrime(19)).toBe(true);
+      expect(isItPrime(19.01)).toBe(false);
+      expect(isItPrime(41)).toBe(true);
+      expect(isItPrime(0)).toBe(false);
+      expect(isItPrime(42)).toBe(false);
+    });
+  });
+
 });
 
-describe('isItPrime', () => {
-  test('it should return true if number is prime integer', () => {
-    expect(isItPrime(4)).toBe(false);
-    expect(isItPrime(7)).toBe(true);
-    expect(isItPrime(19)).toBe(true);
-    expect(isItPrime(19.01)).toBe(false);
-    expect(isItPrime(41)).toBe(true);
-    expect(isItPrime(0)).toBe(false);
-    expect(isItPrime(42)).toBe(false);
-  });
-});
+
+
+

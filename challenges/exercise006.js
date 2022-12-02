@@ -23,6 +23,18 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error('str is required');
+
+  const dnaStrArr = str.toUpperCase().split('');
+  const dnaStringVerifier = ['A', 'C', 'T', 'G'];
+  let dnaCharFrequency = 0;
+
+  const charFrequency = (arr, str) =>
+    arr.reduce((count, value) => (value === str ? count + 1 : count), 0);
+
+  for (let chars of dnaStringVerifier) {
+    dnaCharFrequency += charFrequency(dnaStrArr, chars);
+  }
+  return dnaStrArr.length > 0 ? dnaCharFrequency === dnaStrArr.length : false;
 };
 
 /**
@@ -32,6 +44,15 @@ export const isValidDNA = (str) => {
  */
 export const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error('str is required');
+  const strArr = str.toUpperCase().split('');
+  const dnaStringVerifier = ['A', 'C', 'T', 'G'];
+  const dnaCompStringVerifier = ['T', 'G', 'A', 'C'];
+
+  for (const chrIndex in strArr) {
+    const index = dnaStringVerifier.indexOf(strArr[chrIndex]);
+    strArr.splice(chrIndex, 1, dnaCompStringVerifier[index]);
+  }
+  return strArr.join('').toLowerCase();
 };
 
 /**
