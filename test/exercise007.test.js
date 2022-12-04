@@ -117,3 +117,45 @@ describe('getScreentimeAlertList', () => {
     expect(getScreentimeAlertList(users, '2019-06-14')).toEqual([]);
   });
 });
+
+describe("hexToRGB", () => {
+  test("It throws an error when nothing is passed to function", () => {
+    expect(() => {
+      hexToRGB();
+    }).toThrow("hexStr is required");
+  });
+  test("returns the sum of numbers which is passed in", () => {
+    const result = hexToRGB("#FF1133");
+    const expected = "rgb(255,17,51)";
+    expect(result).toBe(expected);
+  });
+});
+
+describe('findWinner', () => {
+  test('it should return matrix of n rows and cols and filled with data in fill', () => {
+    const board1 = [
+      ['X', '0', null],
+      ['X', null, '0'],
+      ['X', null, '0'],
+    ]
+    expect(findWinner(board1)).toBe('X')
+    const board2 = [
+      ['0', '0', '0'],
+      ['X', null, 'X'],
+      ['X', null, '0']
+    ]
+    expect(findWinner(board2)).toBe('0')
+    const board3 = [
+      [null, '0', '0'],
+      ['X', null, 'X'],
+      ['X', null, null]
+    ]
+    expect(findWinner(board3)).toBe(null)
+    const board4 = [
+      [null, '0', 'X'],
+      ['0', 'X', 'X'],
+      ['X', null, null]
+    ]
+    expect(findWinner(board4)).toBe('X')
+  })
+})

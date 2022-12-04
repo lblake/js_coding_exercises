@@ -95,6 +95,11 @@ export const getScreentimeAlertList = (users, date) => {
  */
 export const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error('hexStr is required');
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexStr);
+  return `rgb(${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(
+    result[3],
+    16
+  )})`;
 };
 
 /**
@@ -109,4 +114,28 @@ export const hexToRGB = (hexStr) => {
  */
 export const findWinner = (board) => {
   if (board === undefined) throw new Error('board is required');
+
+  let winningUser = '';
+  const a1 = [...board[0]];
+  const a2 = [...board[1]];
+  const a3 = [...board[2]];
+
+  //col 1
+  if (a1[0] === a2[0] && a2[0] === a3[0]) winningUser = a1[0];
+  //col 2
+  else if (a1[1] === a2[1] && a2[1] === a3[1]) winningUser = a1[1];
+  //col 3
+  else if (a1[2] === a2[2] && a2[2] === a3[2]) winningUser = a1[2];
+  //row 1
+  else if (a1[0] === a1[1] && a1[1] === a1[2]) winningUser = a1[0];
+  //row 2
+  else if (a2[0] === a2[1] && a2[1] === a2[2]) winningUser = a2[0];
+  //row 3
+  else if (a3[0] === a3[1] && a3[1] === a3[2]) winningUser = a3[0];
+  //diagonal 1
+  else if (a1[0] === a2[1] && a2[1] === a3[2]) winningUser = a1[0];
+  //diagonal 1
+  else if (a1[2] === a2[1] && a2[1] === a3[0]) winningUser = a1[2];
+
+  return winningUser;
 };
