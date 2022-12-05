@@ -1,22 +1,21 @@
-// Note: Be sure to check out all the exercises corresponding .md files (in docs)! 📘 👍
-
 export function capitalize(word) {
   if (word === undefined) throw new Error('word is required');
-  // Add your code here!
   return word[0].toUpperCase() + word.substring(1);
 }
 
 export function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error('firstName is required');
   if (lastName === undefined) throw new Error('lastName is required');
-  // Add your code here!
-  return firstName[0] + '.' + lastName[0];
+
+  return `${firstName.substring(0, 1).toUpperCase()}.${lastName
+    .substring(0, 1)
+    .toUpperCase()}`;
 }
 
 export function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error('originalPrice is requied');
   if (vatRate === undefined) throw new Error('vatRate is required');
-  // Add your code here!
+
   return vatRate > 0
     ? Math.round(originalPrice * (vatRate / 100 + 1) * 100) / 100
     : originalPrice;
@@ -25,7 +24,7 @@ export function addVAT(originalPrice, vatRate) {
 export function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error('originalPrice is required');
   if (reduction === undefined) throw new Error('reduction is required');
-  // Add your code here!
+
   let salePrice =
     reduction > 0
       ? originalPrice - (reduction / 100) * originalPrice
@@ -35,7 +34,7 @@ export function getSalePrice(originalPrice, reduction) {
 
 export function getMiddleCharacter(str) {
   if (str === undefined) throw new Error('str is required');
-  // Add your code here!
+
   const i = Math.floor(str.length / 2);
   let result = str[i];
   if (str.length % 2 === 0 && i > 0) {
@@ -46,27 +45,26 @@ export function getMiddleCharacter(str) {
 
 export function reverseWord(word) {
   if (word === undefined) throw new Error('word is required');
-  // Add your code here!
+
   return word.split('').reverse().join('');
 }
 
 export function reverseAllWords(words) {
   if (words === undefined) throw new Error('words is required');
-  // Add your code here!
+
   let reverseWords = words.map((word) => word.split('').reverse().join(''));
   return reverseWords;
 }
 
 export function countLinuxUsers(users) {
   if (users === undefined) throw new Error('users is required');
-  // Add your code here!
-  let noLinuxUser = users.filter((user) => user.type === 'Linux');
-  return noLinuxUser.length;
+
+  return users.filter((user) => user.type === 'Linux').length;
 }
 
 export function getMeanScore(scores) {
   if (scores === undefined) throw new Error('scores is required');
-  // Add your code here!
+
   const arr = scores;
   const average = arr.reduce((a, b) => a + b, 0) / arr.length;
   return Math.round(average * 100) / 100;
@@ -74,7 +72,7 @@ export function getMeanScore(scores) {
 
 export function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error('n is required');
-  // Add your code here!
+
   for (let i = 1; i <= 15; i++) {
     if (n % 3 === 0 && n % 5 === 0) {
       return 'fizzbuzz';
