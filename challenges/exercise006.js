@@ -62,7 +62,7 @@ export const getComplementaryDNA = (str) => {
  */
 export const isItPrime = (n) => {
   if (n === undefined) throw new Error('n is required');
-  return n % 1 == 0 && !(n % 2 == 0) ? true : false;
+  return n % 1 == 0 && !(n % 2 == 0);
 };
 
 /**
