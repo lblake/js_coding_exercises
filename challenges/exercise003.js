@@ -1,11 +1,7 @@
 export function getSquares(nums) {
   if (nums === undefined) throw new Error('nums is required');
 
-  let squares = [];
-  for (let num of nums) {
-    squares.push(num * num);
-  }
-  return squares;
+  return nums.map((number) => number * number);
 }
 
 export function camelCaseWords(words) {
