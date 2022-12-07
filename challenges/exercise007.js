@@ -4,14 +4,12 @@
  */
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error('n is required');
+
   const numberArray = n.toString().split('');
-  let sum = 0;
-
-  numberArray.forEach((num) => {
-    sum += Number.parseInt(num);
-  });
-
-  return sum;
+  const total = numberArray.reduce(function (sum, number) {
+    return sum + parseInt(number);
+  }, 0);
+  return total;
 };
 
 /**
